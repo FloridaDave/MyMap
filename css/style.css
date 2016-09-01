@@ -60,7 +60,7 @@ hr {
     background-color: #333; /* Modern Browsers */
 }
 
-#map {
+.map {
     position: absolute;
     top:0;
     bottom:0;
