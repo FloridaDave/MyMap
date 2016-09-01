@@ -61,8 +61,7 @@ hr {
 }
 
 #map {
-	width: 800 px;
-	height: 650 px;
+	height: 100%;
 }
 
 img {
