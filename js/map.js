@@ -63,13 +63,13 @@ function initMap(){
 		// function populateInfoWindow(marker, infowindow){
 
 		// 	// Checks to make sure infowindow already open on this marker
-			if (infowindow.marker != marker) {
-				infowindow.marker = marker;
-				infowindow.setContent('<div>' + marker.title + '</div>');
-				infowindow.open(map, marker);
+			if (InfoWindow.marker != marker) {
+				InfoWindow.marker = marker;
+				InfoWindow.setContent('<div>' + marker.title + '</div>');
+				InfoWindow.open(map, marker);
 				// Make sure marker property cleared if infowindow is closed
-				infowindow.addListener('closeclick', function(){
-					infowindow.setMarker(null);
+				InfoWindow.addListener('closeclick', function(){
+					InfoWindow.setMarker(null);
 				});
 
 			}
