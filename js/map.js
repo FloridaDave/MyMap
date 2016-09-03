@@ -25,7 +25,7 @@ function initMap(){
 		{title: 'Butler Bay Recreation Area', location: {lat: 28.505466, lng: -81.551895}},
 	]
 	
-	var largeInfowindow = new google.maps.InfoWindow();
+	var infoWindow = new google.maps.InfoWindow();
 
 	// New LatLngBounds instance that captures southwest and northeast corners
 	var bounds = new google.maps.LatLngBounds();
@@ -54,7 +54,10 @@ function initMap(){
 
 		// Create an onclick event to open an infowindow at each marker
 		marker.addListener('click', function() { 
-			populateInfoWindow(this, largeInfowindow);
+			// populateInfoWindow(this, infoWindow);
+			var marker = this;
+			infoWindow.setContent('<div>' + marker.title + '</div>');
+			infoWindow.open(map, marker);
 		});
 
 
@@ -63,21 +66,25 @@ function initMap(){
 		// function populateInfoWindow(marker, infowindow){
 
 		// 	// Checks to make sure infowindow already open on this marker
-			if (infowindow.marker != marker) {
-				infowindow.marker = marker;
-				infowindow.setContent('<div>' + marker.title + '</div>');
-				infowindow.open(map, marker);
-				// Make sure marker property cleared if infowindow is closed
-				infowindow.addListener('closeclick', function(){
-					infowindow.setMarker(null);
-				});
+			// if (infoWindow.marker != marker) {
 
-			}
+				// console.log(infoWindow.marker != marker);
+
+				// infoWindow.marker = marker;
+				// infoWindow.setContent('<div>' + marker.title + '</div>');
+				// infoWindow.open(map, marker);
+				// Make sure marker property cleared if infowindow is closed
+				// infoWindow.addListener('closeclick', function(){
+				// 	infoWindow.setMarker(null);
+				// });
+
+			// }
 
 			// Tells map to fit itself to bounds
 			map.fitBounds(bounds);
 
 		}
+	}
 
 
 					
